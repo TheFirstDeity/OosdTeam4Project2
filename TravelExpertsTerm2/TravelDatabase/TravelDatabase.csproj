@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.1.0.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
@@ -44,15 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AuthorAttribute.cs" />
+    <Compile Include="Entities\CustomerAccount.cs" />
+    <Compile Include="Entities\IValidatable.cs" />
     <Compile Include="Entities\Package.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductSupplier.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="EntityData\PackageDB.cs" />
     <Compile Include="EntityData\ProductDB.cs" />
+    <Compile Include="EntityData\ProductSupplierDB.cs" />
     <Compile Include="EntityData\SupplierDB.cs" />
+    <Compile Include="EntityProviders\EntityProviderBase.cs" />
+    <Compile Include="EntityProviders\IDataOperations.cs" />
+    <Compile Include="EntityProviders\PackageEntityProvider.cs" />
+    <Compile Include="EntityProviders\ProductEntityProvider.cs" />
+    <Compile Include="EntityProviders\ProductSupplierEntityProvider.cs" />
+    <Compile Include="EntityProviders\SupplierEntityProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelExpertsDB.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="ValadationExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionString.txt">

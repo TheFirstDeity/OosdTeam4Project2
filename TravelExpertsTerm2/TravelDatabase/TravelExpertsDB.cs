@@ -1,5 +1,8 @@
-﻿using System;
+﻿// ReSharper disable All
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,10 +15,10 @@ namespace TravelDatabase
     ///     Global database functions like creating connections.
     /// </summary>
     [Chad]
-    public static class TravelExpertsDb
+    public static class TravelExpertsDB
     {
         [Devin]
-        private const string ConnectionStringFilePath = @"ConnectionString.txt";
+        private const string ConnectionStringFilePath = "connectionString.txt";
 
         /// <summary>
         ///     Connection string used by all the database functions. Defaults to the first line 
@@ -27,5 +30,11 @@ namespace TravelDatabase
             File.Exists(ConnectionStringFilePath)
             ? File.ReadLines(ConnectionStringFilePath).FirstOrDefault()
             : null;
+
+        public static SqlConnection GetConnection()
+        {
+            SqlConnection connection = new SqlConnection(ConnectionString); //creates a new connection and returns it
+            return connection;
+        }
     }
 }
